@@ -7,7 +7,7 @@ namespace MazeKZ
         static void Main(string[] args)
         {
             var uiHelper = new ConsoleUIHelper();
-            uiHelper.Play();
+            uiHelper.ConfigurateMaze();
         }
     }
 }
