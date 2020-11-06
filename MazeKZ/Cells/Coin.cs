@@ -15,8 +15,7 @@ namespace MazeKZ.Cells
         {
             Maze.Hero.Money++;
 
-            var ground = new Ground(X, Y, Maze);
-            Maze.ReplaceCell(ground);
+            Maze.ReplaceToGround(this);
             return true;
         }
     }

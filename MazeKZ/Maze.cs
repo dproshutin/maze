@@ -8,9 +8,9 @@ namespace MazeKZ
 {
     public class Maze
     {
-        public List<CellBase> Cells { get; set; }
+        public virtual List<CellBase> Cells { get; set; }
 
-        public List<CellBase> CellsWithHero {
+        public virtual List<CellBase> CellsWithHero {
             get 
             {
                 var copyCells = Cells.ToList();
@@ -19,7 +19,7 @@ namespace MazeKZ
             } 
         }
 
-        public Hero Hero { get; set; }
+        public virtual Hero Hero { get; set; }
         public int Width { get; set; }
         // public int WidthGet => Cells.Max(cell => cell.X);
 
@@ -43,7 +43,7 @@ namespace MazeKZ
             Cells = new List<CellBase>();
         }
 
-        public void TryToStep(Direction direction)
+        public virtual void TryToStep(Direction direction)
         {
             var heroX = Hero.X;
             var heroY = Hero.Y;
@@ -75,12 +75,18 @@ namespace MazeKZ
             }
         }
 
-        public void ReplaceCell(CellBase newCell)
+        public virtual void ReplaceToGround(CellBase oldCell)
+        {
+            var ground = new Ground(oldCell.X, oldCell.Y, this);
+            ReplaceCell(ground);
+        }
+
+        public virtual void ReplaceCell(CellBase newCell)
         {
             ReplaceCell(Cells, newCell);
         }
 
-        public void ReplaceCell(List<CellBase> cells, CellBase newCell)
+        public virtual void ReplaceCell(List<CellBase> cells, CellBase newCell)
         {
             var cellForRemove = cells
                 .SingleOrDefault(currentCell => currentCell.X == newCell.X && currentCell.Y == newCell.Y);
