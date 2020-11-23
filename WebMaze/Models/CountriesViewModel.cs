@@ -13,6 +13,8 @@ namespace WebMaze.Models
         public string Flag { get; set; }
         public double CountryArea { get; set; }
 
+        public CountriesViewModel() { }
+
         public CountriesViewModel(string country, string capital, int population, string flag, double area)
         {
             CountryName = country;
