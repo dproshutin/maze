@@ -11,6 +11,10 @@ namespace WebMazeKZ.DBStuff
     {
         public DbSet<CountryDetails> CountryDetails { get; set; }
 
+        public DbSet<CitizenUser> CitizenUser { get; set; }
+
+        public DbSet<Address> Address { get; set; }
+
         public WebMazeContext(DbContextOptions dbContext) : base(dbContext) { }
     }
 }

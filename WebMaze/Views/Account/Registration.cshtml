@@ -1,0 +1,19 @@
+﻿@using WebMazeKZ.Models.Account
+@model LoginViewModel
+
+<div>
+    Страница регистрации
+
+    <form action="@Url.Action("Registration", "Account")" method="post">
+        <div>
+            Login: @Html.TextBoxFor(x => x.Login)
+            <!-- эквивалентно <input name="Login" value="@Model.Login" /> -->
+        </div>
+        <div>
+            Password: @Html.TextBoxFor(x => x.Password, new { @type = "password"})
+        </div>
+        <div>
+            <input type="submit" value="Создать пользователя" />
+        </div>
+        </form>
+    </div>
